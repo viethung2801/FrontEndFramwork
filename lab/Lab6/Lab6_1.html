@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <div>
+            <div class="card" ng-controller="myCtrl">
+                <div class="card-header">
+                    Tính Tiền Thương Tết Nguyên Đán
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Họ và tên</strong></label>
+                            <input ng-model="fullName" type="text" class="form-control" placeholder="Nguyễn Văn Tèo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Lương</strong></label>
+                            <div class="input-group">
+                                <input ng-model="salary" type="text" class="form-control" placeholder="8000000">
+                                <div class="input-group-text">VNĐ</div>
+                            </div>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Giới tính</strong></label>
+                            <br>
+                            <label>
+                                <input ng-model="gender" type="radio" name="gender" value="male">
+                                Nam
+                            </label>
+
+                            <label>
+                                <input ng-model="gender" type="radio" name="gender" value="female">
+                                Nữ
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Độ tuổi</strong></label>
+                            <select class="form-select form-select-lg" ng-model="age"
+                                ng-options="x.age for x in ages"></select>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    <Strong>Tiền thưởng:</Strong> {{getBonus()|number:2}} VNĐ
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        angular.module("myApp", []).controller("myCtrl", function ($scope) {
+            //khai báo các options cho ng-options
+            $scope.ages = [
+                {
+                    age: "Dưới 25",
+                    rate: 0.07
+                },
+                {
+                    age: "Từ 25 đến 40",
+                    rate: 0.1
+                },
+                {
+                    age: "Trên 40",
+                    rate: 0.15
+                },
+            ]
+            //set options đefault
+            $scope.age = $scope.ages[1];
+            //set gender default
+            $scope.gender = "male";
+
+            //under 25  = 0.07% salary
+            //25 to 40 = 0.1% salary
+            //over 40 = 0.15% salary
+            //female + 200.000
+
+            $scope.getBonus = function () {
+                return $scope.gender == "male" ? $scope.salary * $scope.age.rate : ($scope.salary * $scope.age.rate)+200000
+            }
+        })
+    </script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

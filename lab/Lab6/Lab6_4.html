@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <style>
+        input.ng-invalid{
+            background-image: url(images/flame.png);
+            background-repeat: no-repeat;
+            background-position: center right;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <div>
+            <div class="card" ng-controller="myCtrl">
+                <div class="card-header">
+                    THÔNG TIN SINH VIÊN 
+                </div>
+                <div class="card-body">
+                    <form action="" name="formInfo">
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Họ và tên</strong></label>
+                            <input ng-model="name" type="text" class="form-control" placeholder="Nguyễn Chí Phèo"
+                                name="txtName" required maxlength="25">
+                            <span ng-show="formInfo.txtName.$invalid"> Vui lòng nhập họ và tên</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Điểm</strong></label>
+                            <input ng-model="salary" type="number" class="form-control" name="txtPoint" min="1" max="10"
+                                required>
+                            <span ng-show="formInfo.txtPoint.$invalid">Điểm phải từ 0 - 10</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Email</strong></label>
+                            <input ng-model="email" class="form-control" type="email" name="txtEmail" id="">
+                            <span ng-show="formInfo.txtEmail.$invalid">Email không hợp lệ</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Số xe</strong></label>
+                            <input ng-model="LicenseNumber" type="text" class="form-control" name="txtLicenseNumber" 
+                                pattern="5\d-[A-Z]\d-((\d{4})|(\d{3}\.\d{2}))">
+                            <span ng-show="formInfo.txtLicenseNumber.$invalid">Không đúng số xe Sài gòn</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button" class="btn btn-primary">Lưu</button>
+                    <span ng-show="formInfo.$valid">Thông tin hợp lệ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        angular.module("myApp", []).controller("myCtrl", function ($scope) {
+
+        })
+    </script>
+    
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

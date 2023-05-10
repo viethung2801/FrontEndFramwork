@@ -1,0 +1,24 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.text-menu{
+    font-size: 22px;
+    font-weight: 700;
+}
+.text-menu:hover{
+    text-decoration: underline;
+}
+.lineFooter{
+    height: 20px;
+    background-color: #D06B45;
+}
+
+.color-main{
+    color: #F7941D;
+}
+footer{
+    background-color: #192041;
+    color: white;
+}
+

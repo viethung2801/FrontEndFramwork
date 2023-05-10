@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <style>
+        input.ng-invalid {
+            background-image: url(images/flame.png);
+            background-repeat: no-repeat;
+            background-position: center right;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <div>
+            <div class="card" ng-controller="myCtrl">
+                <div class="card-header">
+                    Custom validation
+                </div>
+                <div class="card-body">
+                    <form action="" name="form">
+                        <div class="mb-3">
+                            <label for="" class="form-label"><strong>Số Poly</strong></label>
+                            <input ng-model="polynumber" name="txtNumber" type="number" class="form-control" poly-number>
+                            <span ng-show="form.txtNumber.$invalid"> Số này không chia hết cho 2 và cho 9</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="button" class="btn btn-primary">Kiểm tra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl",function ($scope) {
+
+          });
+        //tạo directive theo ý mình
+        app.directive("polyNumber", function () {
+            return{
+                require : "ngModel",
+
+                link: function (scope,element, attr, mCtrl) {
+                    mCtrl.$parsers.push(function (value) {
+                        var number = parseInt(value);
+                        if(number % 2 == 0 && number % 9 == 0){
+                            mCtrl.$setValidity('charE',true);
+                        }else{
+                            mCtrl.$setValidity('charE', false);
+                        }
+                        return value;
+                      });
+                  }
+            }
+        });
+
+        
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

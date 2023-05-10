@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <div class="row">
+            <div class="col-6" ng-controller="firstCtrl">
+                <form action="">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Chiều dài</label>
+                        <input ng-model="width" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Chiều rộng</label>
+                        <input ng-model="height" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Diện tích</label>
+                        <input ng-model="dienTich" type="text" class="form-control" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Chu vi</label>
+                        <input ng-model="chuVi" type="text" class="form-control" disabled>
+                    </div>
+                </form>
+                <hr>
+                <button ng-click="calculate()" type="button" class="btn btn-primary">Calculate</button>
+            </div>
+
+            <div class="col-6" ng-controller="secondCtrl">
+                <form action="">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Họ và tên</label>
+                        <input ng-model="name" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Ngày sinh</label>
+                        <input ng-model="date" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Giới tính</label>
+                        <select ng-model="gender" class="form-select form-select-lg" name="" id="">
+                            <option selected>Nam</option>
+                            <option value="">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Điểm</label>
+                        <input ng-model="point" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Học lực</label>
+                        <input ng-model="rank" type="text" class="form-control" disabled>
+                    </div>
+                </form>
+                <hr>
+                <button ng-click="grade()" type="button" class="btn btn-primary">Grade</button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("firstCtrl", function ($scope) {
+            $scope.calculate = function () {
+                var width = parseFloat($scope.width);
+                var height = parseFloat($scope.height);
+                if (width > 0 && height > 0) {
+                    $scope.chuVi = (width + height) * 2;
+                    $scope.dienTich = width * height;
+                }
+            }
+        })
+        app.controller("secondCtrl", function ($scope) {
+            $scope.grade = function () {
+                var mark = parseFloat($scope.point);
+                if (mark >= 0 && mark <= 10) {
+                    if (mark >= 5) {
+                        $scope.rank = "Đậu";
+                    }else{
+                        $scope.rank = "Rớt";
+                    }
+                }
+
+            }
+        })
+    </script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

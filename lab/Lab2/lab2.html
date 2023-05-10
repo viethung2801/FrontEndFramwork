@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Lab 2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="lab2.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- bootstrap 5 tabs = navs  -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true">Cập Nhật</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false">Danh Sách</button>
+            </li>
+
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <form action="" method="get">
+
+                    <div class="card">
+
+                        <div class="card-header">
+                            NHẬP THÁNG LƯƠNG 12
+                        </div>
+                        <div class="card-body row">
+                            <div class="mb-3 col-6">
+                                <label for="email" class="form-label p">Mã nhân viên</label>
+                                <input type="text" class="form-control" name="" id="">
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="email" class="form-label p">Họ và tên</label>
+                                <input type="text" class="form-control" name="" id="">
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="email" class="form-label p">Câu lạc bộ</label>
+                                <select class="form-select form-select-lg" name="" id="">
+                                    <option selected>Đà Nẵng</option>
+                                    <option value="">Hà Nội</option>
+                                    <option value="">Hồ Chí Minh</option>
+                                    <option value="">Hải Phòng</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="email" class="form-label p">Lương</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">$</div>
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-text">.00</div>
+                                </div>
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="email" class="form-label p">Thưởng</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">$</div>
+                                    <input type="text" class="form-control is-invalid" name="" id="">
+                                    <div class="input-group-text">.00</div>
+                                </div>
+                            </div>
+                            <div class="mb-3 col-6 has">
+                                <label for="email" class="form-label p">Phụ cấp</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">$</div>
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-text"><i class="bi-person"></i></div>
+                                </div>
+                            </div>
+                            <div class="mb-3 col-12">
+                                <label for="" class="form-label">Ghi chú</label>
+                                <textarea class="form-control" name="" id="" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3 btn-group col-2">
+                                <button type="button" class="btn btn-primary">Lưu</button>
+                                <!-- Modal trigger button -->
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modalId">
+                                    Hủy
+                                </button>
+                                <!-- Model: Hộp thoại  -->
+                                <!-- Modal Body -->
+                                <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                                <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                                        role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-danger" id="modalTitleId">Xác nhận xóa</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Bạn có chắc muốn hủy thanh niên này không ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">NO</button>
+                                                <button type="button" class="btn btn-primary">YES</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Optional: Place to the bottom of scripts -->
+                                <script>
+                                    const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
+
+                                </script>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"><!-- CARD với TABLE  -->
+                <div class="card">
+                    <div class="card">
+                        <div class="card-header">
+                            BẢNG LƯƠNG THÁNG 12
+                        </div>
+                        <div class="card-body">
+
+                            <!-- TABLE Bootstrap 5 -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="table-warning">
+                                        <tr>
+                                            <th scope="col" rowspan="2">Mã NV</th>
+                                            <th scope="col" rowspan="2">Họ Và Tên</th>
+                                            <th scope="col" colspan="3" style="text-align: center;">Thu Nhập</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Lương</th>
+                                            <th scope="col">Thưởng</th>
+                                            <th scope="col">Phụ cấp</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="">
+                                            <td scope="row">NV100</td>
+                                            <td>Nguyễn Công Phượng</td>
+                                            <td>5000000</td>
+                                            <td>500000</td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td scope="row">NV102</td>
+                                            <td>Phan Văn Tài Em</td>
+                                            <td>9000000</td>
+                                            <td>600000</td>
+                                            <td>100000</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td scope="row">NV103</td>
+                                            <td>Lê Huỳnh Đức</td>
+                                            <td>7000000</td>
+                                            <td>300000</td>
+                                            <td>200000</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Lương của cầu thủ và huấn luyện viên chuyên nghiệp
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

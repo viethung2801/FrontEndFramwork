@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <header>
+            <h1>SINGLE PAGE APPLICATION</h1>
+        </header>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/home" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/contact">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+        <hr>
+
+        <div ng-view></div>
+        <hr>
+        <footer>
+            FPT Polytechnic &copy; 2017. All rights reserved
+        </footer>
+    </div>
+    <!-- <script src="Products.js"></script> -->
+    <script>
+
+        var app = angular.module("myApp", ["ngRoute"]);
+        // mã định tuyến (SPA)
+        app.config(function ($routeProvider) {
+            $routeProvider.when("/home", {
+                templateUrl: 'home.html'
+            });
+            $routeProvider.when("/about", {
+                templateUrl: 'about.html'
+            });
+            $routeProvider.when("/contact", {
+                templateUrl: 'contact.html'
+            });
+            $routeProvider.otherwise({
+                templateUrl: 'home.html'
+            });
+        });
+
+        //điều khiển trạn thái khi tải
+        app.run(function ($rootScope) {
+            $rootScope.$on('$routeChangeStart', function () {
+                $rootScope.loading = true;
+            });
+            $rootScope.$on('$routeChangeSuccess', function () {
+                $rootScope.loading = false;
+            });
+            $rootScope.$on('$routeChangeError', function () {
+                $rootScope.loading = false;
+                alert("Lỗi, không tải được template")
+            });
+        })
+        //controller
+        
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

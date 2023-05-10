@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <!-- ng-app: phạm vi ứng dụng angularjs-->
+  <div ng-controller="myCtrl">
+    <!-- ng-controller: định nghĩa phạm vi giao điện điều kiển -->
+    <!-- Hiển thị thông tin sinh viên ở đây -->
+    <div class="card ">
+        <img class="card-img-top" style="width: 300px;height: 400px;" src="{{student.image}}" alt="Title">
+        <div class="card-body">
+            <ul>
+                <li>Họ và tên: {{student.name}}</li>
+                <li>Ngày sinh: {{student.date}}</li>
+                <li>Giới tính: {{student.sex}}</li>
+                <li>Điểm trung bình: {{student.averagePoint}}</li>
+            </ul>
+        </div>
+
+        <script>
+            angular.module("myApp",[]).controller("myCtrl",function ($scope) {
+                $scope.student={
+                    image :"https://www.shutterstock.com/image-vector/cute-kid-teen-boy-show-260nw-1509139481.jpg",
+                    name : "Dương Việt Hùng",
+                    date : "30-01-2003",
+                    sex : "Nam",
+                    averagePoint: "8.5"
+                }
+              })
+        </script>
+    </div>
+    <!-- Script -->
+  </div>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

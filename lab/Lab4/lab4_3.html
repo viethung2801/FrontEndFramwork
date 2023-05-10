@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <div ng-controller="myCtrl">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Hình</th>
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Ngày sinh</th>
+                        <th scope="col">Giới tính</th>
+                        <th scope="col">Điểm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="{{student[0].image}}" width="150px" height="200px" alt=""></td>
+                        <td>{{student[0].name}}</td>
+                        <td>{{student[0].date}}</td>
+                        <td>{{student[0].sex}}</td>
+                        <td>{{student[0].averagePoint}}</td>
+                    </tr>
+                    <tr>
+                        <td><img src="{{student[1].image}}" width="150px" height="200px" alt=""></td>
+                        <td>{{student[1].name}}</td>
+                        <td>{{student[1].date}}</td>
+                        <td>{{student[1].sex}}</td>
+                        <td>{{student[1].averagePoint}}</td>
+                    </tr>
+                    <tr>
+                        <td><img src="{{student[2].image}}" width="150px" height="200px" alt=""></td>
+                        <td>{{student[2].name}}</td>
+                        <td>{{student[2].date}}</td>
+                        <td>{{student[2].sex}}</td>
+                        <td>{{student[2].averagePoint}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <script>
+                angular.module("myApp", []).controller("myCtrl", function ($scope) {
+                    $scope.student = [
+                        {
+                            image: "https://static.vecteezy.com/system/resources/previews/008/191/793/non_2x/male-student-cartoon-character-with-backpack-on-white-background-free-vector.jpg",
+                            name: "Nguyễn Văn Tèo",
+                            sex: "Nam",
+                            date: "20-01-1995",
+                            averagePoint: "8.5"
+                        },
+                        {
+                            image: "https://img.freepik.com/free-vector/cute-happy-smiling-child-isolated-white-background_1308-68855.jpg",
+                            name: "Phạm Thị Nở",
+                            sex: "Nữ",
+                            date: "11-12-1985",
+                            averagePoint: "5.5"
+                        },
+                        {
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm2TXCGthH7glHbBMmveiPMmlbCHToVPp8O7zB3mBtFZ2n7xibj6NQ1rZupdfzMdEcEPw&usqp=CAU",
+                            name: "Trần Ngọc Quang",
+                            sex: "Nam",
+                            date: "31-12-1980",
+                            averagePoint: "7"
+                        }
+                    ]
+                })
+            </script>
+        </div>
+    </div>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
